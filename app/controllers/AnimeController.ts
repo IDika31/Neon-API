@@ -1,7 +1,7 @@
 import BaseController from './BaseController';
 import * as express from 'express';
 import axios from 'axios';
-
+import cheerio from 'cheerio';
 
 type AnimeTitle = {
     original: string;
@@ -101,10 +101,10 @@ export default class AnimeController extends BaseController {
 
     search(title: string): BaseData<Array<AnimeSearchData>> {
                     axios
-                        .get(`https://myanimelist.net/anime.php?cat=anime&q=${encodeURIComponent(this.title)}`)
+                        .get(`https://myanimelist.net/anime.php?cat=anime&q=${encodeURIComponent(title)}`)
                         .then((res) => {
                             const $ = cheerio.load(res.data);
-                            const data: Array<AnimeData> = [];
+                            const data: Array<AnimeSearchData> = [];
                             $('.js-categories-seasonal.js-block-list.list table tbody tr').each((i, el) => {
                                 if (i == 0) return;
                                 const title = $(el).find('td').eq(1).find('a strong').text();
