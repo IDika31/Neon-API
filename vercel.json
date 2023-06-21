@@ -2,16 +2,16 @@
   "version": 2,
   "builds": [
     {
+      "src": "package.json",
+      "use": "@vercel/static-build"
+    },
+    {
       "src": "**/*.ts",
       "use": "tsc"
     },
     {
       "src": "build/**/*.js",
       "use": "vercel-build"
-    },
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build"
     }
   ]
 }
