@@ -4,6 +4,7 @@
       {
           "src": "",
           "use": "tsc"
+      },
       {
           "src": "build/**/*.js",
           "use": "vercel-build"
