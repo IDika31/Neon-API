@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "IDika API New Version",
     "main": "build/app/server/server.js",
+    "type": "module",
     "scripts": {
         "start": "npm run build && node .",
         "dev": "ts-node app/server/server.ts",
