@@ -1,5 +1,8 @@
 // Author: IDika
 
+// Import Lib
+import 'tslib';
+
 // Env Import
 import dotenv from 'dotenv';
 dotenv.config();
@@ -50,6 +53,12 @@ app.use(urlencoded({ extended: true }));
 // Use Router
 app.use(router);
 
+// 404 Error Handler
+app.use((req, res) => {
+    res.status(404).send('Hello, World!');
+
+});
+
 // Listen
 app.listen(process.env.PORT || 3000, async () => {
     console.log(`Server is running on port ${process.env.PORT || 3000}`);
@@ -58,5 +67,4 @@ app.listen(process.env.PORT || 3000, async () => {
     await connectRedis();
 });
 
-
-// Gunakan NextJS bersama dengan ExpressJS
+export default app;
