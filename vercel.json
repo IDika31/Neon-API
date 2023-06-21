@@ -8,6 +8,10 @@
     {
       "src": "build/**/*.js",
       "use": "vercel-build"
+    },
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build"
     }
   ]
 }
