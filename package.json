@@ -4,7 +4,7 @@
     "description": "IDika API New Version",
     "main": "build/app/server/server.js",
     "scripts": {
-        "start": "npm run build && node .",
+        "start": "npm run dev",
         "dev": "ts-node app/server/server.ts",
         "build": "tsc",
         "build:watch": "tsc -w"
