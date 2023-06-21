@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/app/server/server.ts"
-    }
+  "builds": [
+      {
+          "src": "",
+          "use": "tsc"
+      {
+          "src": "build/**/*.js",
+          "use": "vercel-build"
+      }
   ]
 }
