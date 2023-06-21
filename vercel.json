@@ -9,5 +9,8 @@
           "src": "build/**/*.js",
           "use": "vercel-build"
       }
-  ]
+  ],
+  "packages": {
+    "dependencies": ["typescript"]
+  }
 }
