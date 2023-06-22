@@ -48,7 +48,7 @@ app.use(morgan('dev'));
 app.use(compression());
 app.use(json());
 app.use(urlencoded({ extended: true }));
-// app.use(csurf({ cookie: true }));
+// app.use(csrf({ cookie: true }));
 
 // Use Router
 app.use(router);

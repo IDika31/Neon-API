@@ -3,7 +3,6 @@ import { validationResult, checkSchema, Schema, query } from 'express-validator'
 import { makeErrorMessage, makeSuccessMessage } from '../../../config';
 
 import UserController from '../../../app/controllers/UserController';
-import model from '../../../app/models/user';
 
 const router = express.Router();
 const user = new UserController();
@@ -16,7 +15,7 @@ const LoginSchema: Schema = {
                 const error = [];
 
                 if (value == '') error.push('Username must be provided.');
-                if(typeof value != 'string') error.push('Username must be a string.');
+                if (typeof value != 'string') error.push('Username must be a string.');
                 if (value.length < 4) error.push('Username must be at least 4 characters.');
                 if (value.length > 20) error.push('Username must be at most 20 characters.');
 
@@ -71,74 +70,3 @@ router.post('/api/login', checkSchema(LoginSchema, ['body']), async (req: expres
 });
 
 export default router;
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**
- *     //     context.subscriptions.push(
-    //         vscode.commands.registerCommand('idika-utils.createController', async () => {
-    //             // The code you place here will be executed every time your command is executed
-    //             // Display a message box to the user
-    //             const controllerName = await vscode.window.showInputBox({ prompt: 'Enter controller name' });
-    //             if (!controllerName) {
-    //                 return vscode.window.showErrorMessage('Controller name is required.');
-    //             }
-
-    //             const controllerNameCapitalized = capitalize(controllerName);
-
-    //             const createRouter = await vscode.window.showQuickPick(['Yes', 'No'], { placeHolder: 'Create router?' });
-    //             if (!createRouter) {
-    //                 return;
-    //             }
-
-    //             const controllerCode = `// Controller: ${controllerName}
-    // export default class ${controllerNameCapitalized}Controller {
-    //     constructor() {}
-    // }`;
-
-    //             const routerCode = `import express from 'express';
-    // import { validationResult, checkSchema, Schema, query } from 'express-validator';
-    // import { makeErrorMessage, makeSuccessMessage } from '../../config';
-
-    // import ${controllerNameCapitalized}Controller } from '../../app/controllers/${controllerNameCapitalized}Controller';
-    // // import model from '../../app/models/${toLowerCase(controllerName)}';
-
-    // const router = express.Router();
-    // const ${toLowerCase(controllerName)} = new ${controllerNameCapitalized}Controller();
-
-    // export default router;
-    // `;
-
-    //             const controllerPath = vscode.Uri.joinPath(context.extensionUri, 'app', 'controllers', `${controllerNameCapitalized}Controller.ts`);
-    //             const routerPath = vscode.Uri.joinPath(context.extensionUri, 'src', 'router', `${toLowerCase(controllerName)}.ts`);
-
-    //             fs.writeFileSync(controllerPath.fsPath, controllerCode);
-    //             vscode.window.showInformationMessage(`Controller '${controllerNameCapitalized}' created successfully.`);
-
-    //             if (createRouter === 'Yes') {
-    //                 fs.writeFileSync(routerPath.fsPath, routerCode);
-    //                 vscode.window.showInformationMessage(`Router '${controllerNameCapitalized}' created successfully.`);
-    //             }
-    //         })
-    //     );
-}
-
-// function capitalize(text: string): string {
-//     return text.charAt(0).toUpperCase() + text.slice(1);
-// }
-
-// function toLowerCase(text: string): string {
-//     return text.toLowerCase();
-// }
-
- */
