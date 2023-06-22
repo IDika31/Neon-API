@@ -69,13 +69,16 @@ app.use(urlencoded({ extended: true }));
 // app.use(csurf({ cookie: true }));
 app.use(mongoSanitize());
 app.use(limiter);
-app.use(
-    session({
-        secret: ['IDika', 'Secret'],
-        resave: false,
-        saveUninitialized: true,
-    })
-);
+// app.use(
+//     session({
+//         secret: ['IDika', 'Secret'],
+//         resave: false,
+//         saveUninitialized: true,
+//         store: new RedisStore({
+//             sendCommand: async (...args: string[]) => await sendCommand(args),
+//         }),
+//     })
+// );
 app.use(passport.initialize());
 app.use(passport.session());
 
