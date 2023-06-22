@@ -25,10 +25,11 @@ import mongoSanitize from 'express-mongo-sanitize';
 import rateLimit from 'express-rate-limit';
 import RedisStore from 'rate-limit-redis';
 import session from 'express-session';
+import RedisStoreSession from 'connect-redis';
 import passport from 'passport';
 
 // Database Import
-import { connectRedis, sendCommand } from '../database/redis.db';
+import redisClient, { connectRedis, sendCommand } from '../database/redis.db';
 import connectDatabase from '../database/mongo.db';
 
 // View Engine Import
@@ -69,16 +70,17 @@ app.use(urlencoded({ extended: true }));
 // app.use(csurf({ cookie: true }));
 app.use(mongoSanitize());
 app.use(limiter);
-// app.use(
-//     session({
-//         secret: ['IDika', 'Secret'],
-//         resave: false,
-//         saveUninitialized: true,
-//         store: new RedisStore({
-//             sendCommand: async (...args: string[]) => await sendCommand(args),
-//         }),
-//     })
-// );
+app.use(
+    session({
+        secret: ['IDika', 'Secret'],
+        resave: false,
+        saveUninitialized: true,
+        store: new RedisStoreSession({
+            client: redisClient,
+            prefix: 'session.',
+        }),
+    })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 
