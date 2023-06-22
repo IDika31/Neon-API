@@ -20,9 +20,14 @@ redisClient.on('error', (error) => {
     console.log('Redis error', error.message);
 });
 
+(async () => {
+    redisClient.connect();  // Connect to Redis
+})();
+
 export const connectRedis = async () => await redisClient.connect();
 export const disconnectRedis = async () => await redisClient.disconnect();
 export const quitRedis = async () => await redisClient.quit();
 export const redisGet = async (key: string) => await redisClient.get(key);
 export const redisSet = async (key: string, value: string, options?: redis.SetOptions | undefined) => await redisClient.set(key, value, options);
 export const redisDel = async (key: string) => await redisClient.del(key);
+export const sendCommand = async <T>(args: string[]) => await redisClient.sendCommand<T>(args);

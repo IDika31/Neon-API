@@ -1,5 +1,6 @@
-import { ValidationError } from 'express-validator';
+import { ValidationError, validationResult } from 'express-validator';
 import randomBytes from 'randombytes'
+import * as express from 'express'
 
 export const makeErrorMessage = (statusCode: 400 | 401 | 408 | 500 | 503, type: 'query' | 'params' | 'body' | 'missing_params', errorsDetail: ValidationError[]) => {
     const code = [
@@ -57,6 +58,15 @@ export const makeSuccessMessage = (statusCode: 200, data: any) => {
         data,
     };
 };
+
+export const checkError = (): express.RequestHandler => {
+    return (req: express.Request, res: express.Response, next: express.NextFunction) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json(makeErrorMessage(400, 'body', errors.array()));
+        } else next();
+    }
+}
 
 export const formatNumber = (number: number | string): string => {
     const formattedNumber = number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');

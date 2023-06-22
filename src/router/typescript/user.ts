@@ -1,6 +1,8 @@
+import 'tslib';
+
 import * as express from 'express';
-import { validationResult, checkSchema, Schema, query } from 'express-validator';
-import { makeErrorMessage, makeSuccessMessage } from '../../../config';
+import { checkSchema, Schema, query } from 'express-validator';
+import { checkError } from '../../../config';
 
 import UserController from '../../../app/controllers/UserController';
 
@@ -56,17 +58,13 @@ const LoginSchema: Schema = {
     },
 };
 
-router.get('/api/login', (req, res) => {
+router.get('/api/v1/login', (req, res) => {
     res.render('login', {
         title: 'Login',
+        // csrfToken: req.csrfToken(),
     });
 });
 
-router.post('/api/login', checkSchema(LoginSchema, ['body']), async (req: express.Request, res: express.Response) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        return res.status(400).json(makeErrorMessage(400, 'body', errors.array()));
-    } else return res.status(200).json(makeSuccessMessage(200, req.body));
-});
+router.post('/api/v1/login', checkSchema(LoginSchema, ['body']), checkError(), user.login());
 
 export default router;
