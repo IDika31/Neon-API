@@ -6,7 +6,7 @@ info:
 servers:
     - url: http://localhost:3000/api/v1
       description: Local server
-    - url: https://idika-api.herokuapp.com/api/v1
+    - url: https://idika-rest-api-19af1e38caac.herokuapp.com/api/v1
       description: Heroku server
 tags:
     - name: Anime

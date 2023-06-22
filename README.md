@@ -98,7 +98,7 @@ npm run dev
 
 The documentation for this project provides a detailed overview of all endpoints, their request and response structures, and additional guidelines for working with the API. It also includes code examples and further resources to assist developers in integrating the API into their applications.
 
-You can access the documentation by visiting: [Local Documentation](http://localhost:3000/api/v1/docs)
+You can access the documentation by visiting: [Documentation](https://idika-rest-api-19af1e38caac.herokuapp.com/api/v1/docs/)
 
 Feel free to explore the documentation to understand the project's capabilities fully and make the most of its features.
 
