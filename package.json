@@ -3,6 +3,10 @@
     "version": "1.0.0",
     "description": "IDika API New Version",
     "main": "build/app/server/server.js",
+    "engines": {
+        "node": ">=18.0.0",
+        "npm": ">=9.7.2"
+    },
     "scripts": {
         "start": "npm run dev",
         "dev": "ts-node app/server/server.ts",
