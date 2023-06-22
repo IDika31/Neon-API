@@ -3,10 +3,6 @@
     "version": "1.0.0",
     "description": "IDika API New Version",
     "main": "build/app/server/server.js",
-    "engines": {
-        "node": ">=18.0.0",
-        "npm": ">=9.7.2"
-    },
     "scripts": {
         "start": "npm run dev",
         "dev": "ts-node app/server/server.ts",
@@ -17,7 +13,6 @@
     "author": "IDika",
     "license": "MIT",
     "dependencies": {
-        "@types/bcrypt": "^5.0.0",
         "axios": "^1.4.0",
         "bcrypt": "^5.1.0",
         "body-parser": "^1.20.2",
@@ -52,6 +47,7 @@
         "yaml": "^2.3.1"
     },
     "devDependencies": {
+        "@types/bcrypt": "^5.0.0",
         "@types/compression": "^1.7.2",
         "@types/cookie-parser": "^1.4.3",
         "@types/cors": "^2.8.13",
