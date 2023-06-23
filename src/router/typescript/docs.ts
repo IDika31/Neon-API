@@ -37,7 +37,7 @@ router.use(
     //     next();
     // },
     swaggerUi.serve,
-    swaggerUi.setup(specs)
+    swaggerUi.setup(specs, { explorer: true, swaggerOptions: { showCommonExtension: false } })
 );
 
 export default router;

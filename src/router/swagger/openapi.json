@@ -5,6 +5,7 @@
         "version": "1.0.0",
         "description": "API untuk mencari, melihat detail, dan mendapatkan daftar top anime"
     },
+    
     "servers": [
         {
             "url": "http://localhost:3000/",
