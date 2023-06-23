@@ -1,5 +1,5 @@
 import { RequestHandler } from 'express';
-import user from '../models/UserModel';
+import user, { IUser } from '../models/UserModel';
 import apikey from '../models/ApikeyModel';
 import passport from 'passport';
 import { Strategy } from 'passport-local';
@@ -45,7 +45,7 @@ export default class UserController {
         };
     }
 
-    findUser(username: string): Promise<Document> {
+    findUser(username: string): Promise<IUser> {
         return new Promise(async (resolve, reject) => {
             try {
                 const dataUser = await user.findOne({ username });
@@ -71,7 +71,7 @@ export default class UserController {
     }
 
     private serializeUser(): void {
-        passport.serializeUser(function (user: Document, done) {
+        passport.serializeUser(function (user: IUser, done) {
             done(null, user._id);
         });
     }

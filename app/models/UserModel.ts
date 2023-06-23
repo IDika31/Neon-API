@@ -1,15 +1,16 @@
 import { Schema, model, Document } from 'mongoose';
 import * as bcrypt from 'bcrypt';
-import timestamp from 'mongoose-timestamp';
+import paginate from 'mongoose-paginate-v2';
 import unique from 'mongoose-unique-validator';
 
-// export interface UserDocument extends Document {
-//     username: string;
-//     email: string;
-//     password: string;
-// }
-
-// export type UserDocument = User;
+export interface IUser extends Document {
+    username: string;
+    email: string;
+    password: string;
+    isVerified: boolean;
+    createdAt: Date;
+    modifiedAt: Date;
+}
 
 const UserSchema = new Schema({
     username: {
@@ -34,10 +35,10 @@ const UserSchema = new Schema({
     },
 });
 
-UserSchema.plugin(timestamp);
+UserSchema.plugin(paginate);
 UserSchema.plugin(unique);
 
-UserSchema.pre('save', async function(next) {
+UserSchema.pre('save', async function (next) {
     try {
         // Hanya enkripsi password jika sudah diubah atau baru ditambahkan.
         if (!this.isModified('password')) {
@@ -56,4 +57,4 @@ UserSchema.pre('save', async function(next) {
     }
 });
 
-export default model('User', UserSchema);
+export default model<IUser>('User', UserSchema);

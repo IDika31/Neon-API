@@ -1,5 +1,10 @@
-import { Schema, model } from 'mongoose';
-import timestamp from 'mongoose-timestamp';
+import { Schema, Document, model } from 'mongoose';
+import paginate from 'mongoose-paginate-v2';
+
+export interface IApiKey extends Document {
+    key: string;
+    userId: Schema.Types.ObjectId;
+}
 
 const ApiKeySchema = new Schema({
     key: {
@@ -15,6 +20,6 @@ const ApiKeySchema = new Schema({
     }
 });
 
-ApiKeySchema.plugin(timestamp);
+ApiKeySchema.plugin(paginate);
 
-export default model('ApiKey', ApiKeySchema);
+export default model<IApiKey>('ApiKey', ApiKeySchema);
