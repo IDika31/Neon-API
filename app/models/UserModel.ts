@@ -1,19 +1,20 @@
-import { Schema, model, Document, ObjectId } from 'mongoose';
+import { Schema, model, Document } from 'mongoose';
 import * as bcrypt from 'bcrypt';
+import timestamp from 'mongoose-timestamp';
+import unique from 'mongoose-unique-validator';
 
-export interface User extends Document {
+export interface UserDocument extends Document {
     username: string;
     email: string;
     password: string;
-    _id: ObjectId;
 }
+
+// export type UserDocument = User;
 
 const UserSchema = new Schema({
     username: {
         type: String,
         required: true,
-        minLength: 4,
-        maxlength: 20,
         unique: true,
         trim: true,
     },
@@ -26,9 +27,15 @@ const UserSchema = new Schema({
     password: {
         type: String,
         required: true,
-        minLength: 6,
+    },
+    isVerified: {
+        type: Boolean,
+        default: false,
     },
 });
+
+UserSchema.plugin(timestamp);
+UserSchema.plugin(unique);
 
 UserSchema.pre('save', async function(next) {
     try {

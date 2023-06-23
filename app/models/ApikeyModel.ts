@@ -1,4 +1,5 @@
-import { Schema, model, } from 'mongoose';
+import { Schema, model } from 'mongoose';
+import timestamp from 'mongoose-timestamp';
 
 const ApiKeySchema = new Schema({
     key: {
@@ -11,11 +12,9 @@ const ApiKeySchema = new Schema({
         required: true,
         unique: true,
         ref: 'User',
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now(),
-    },
+    }
 });
+
+ApiKeySchema.plugin(timestamp);
 
 export default model('ApiKey', ApiKeySchema);

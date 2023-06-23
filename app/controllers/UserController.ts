@@ -1,9 +1,10 @@
 import { RequestHandler } from 'express';
-import user, { User } from '../models/UserModel';
+import user, { UserDocument } from '../models/UserModel';
 import apikey from '../models/ApikeyModel';
 import passport from 'passport';
 import { Strategy } from 'passport-local';
 import * as bcrypt from 'bcrypt';
+import { generateApiKey } from '../../config';
 
 export default class UserController {
     constructor() {
@@ -21,6 +22,39 @@ export default class UserController {
         };
     }
 
+    register(): RequestHandler {
+        return (req, res, next) => {
+            const dataUser = user.create(req.body);
+
+            dataUser
+                .then(async (dataUser) => {
+                    try {
+                        await apikey.create({
+                            userId: dataUser._id,
+                            key: generateApiKey(),
+                        });
+                        this.login()(req, res, next);
+                    } catch (err) {
+                        res.redirect('/api/v1/register');
+                    }
+                })
+                .catch((err) => {
+                    res.redirect('/api/v1/register');
+                });
+        };
+    }
+
+    findUser(username: string): Promise<UserDocument> {
+        return new Promise(async (resolve, reject) => {
+            try {
+                const dataUser = await user.findOne({ username });
+                resolve(dataUser);
+            } catch (err) {
+                reject(err);
+            }
+        });
+    }
+
     private initiatePassport(): void {
         passport.use(
             new Strategy({ usernameField: 'username', passwordField: 'password' }, async (username, password, done) => {
@@ -36,7 +70,7 @@ export default class UserController {
     }
 
     private serializeUser(): void {
-        passport.serializeUser(function (user: User, done) {
+        passport.serializeUser(function (user: UserDocument, done) {
             done(null, user._id);
         });
     }

@@ -27,6 +27,8 @@ import RedisStore from 'rate-limit-redis';
 import session from 'express-session';
 import RedisStoreSession from 'connect-redis';
 import passport from 'passport';
+import favicon from 'serve-favicon';
+import path from 'path';
 
 // Database Import
 import redisClient, { connectRedis, sendCommand } from '../database/redis.db';
@@ -34,7 +36,6 @@ import connectDatabase from '../database/mongo.db';
 
 // View Engine Import
 import { setupReactViews, PrettifyRenderMiddleware } from 'express-tsx-views';
-import path from 'path';
 
 const limiter = rateLimit({
     store: new RedisStore({
@@ -83,6 +84,7 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(favicon(path.join(__dirname, 'public', 'img', 'logo.png')))
 
 // Use Router
 app.use(router);
