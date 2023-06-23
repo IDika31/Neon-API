@@ -84,7 +84,7 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(favicon(path.join(__dirname, 'public', 'img', 'logo.png')))
+app.use(favicon(path.join(__dirname, '../', '../', 'public', 'img', 'logo.png')))
 
 // Use Router
 app.use(router);
