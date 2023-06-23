@@ -35,6 +35,6 @@ const ApiKeySchema = new Schema(
     }
 );
 
-ApiKeySchema.plugin(paginate);
+// ApiKeySchema.plugin(paginate);
 
 export default model<IApiKey>('ApiKey', ApiKeySchema);
