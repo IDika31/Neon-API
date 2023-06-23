@@ -30,7 +30,7 @@ export default class UserController {
                 .then(async (dataUser) => {
                     try {
                         await apikey.create({
-                            userId: dataUser._id,
+                            userId: dataUser.id,
                             key: generateApiKey(),
                         });
                         this.login()(req, res, next);
