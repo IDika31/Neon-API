@@ -3,11 +3,11 @@ import * as bcrypt from 'bcrypt';
 import timestamp from 'mongoose-timestamp';
 import unique from 'mongoose-unique-validator';
 
-export interface UserDocument extends Document {
-    username: string;
-    email: string;
-    password: string;
-}
+// export interface UserDocument extends Document {
+//     username: string;
+//     email: string;
+//     password: string;
+// }
 
 // export type UserDocument = User;
 

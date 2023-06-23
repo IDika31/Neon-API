@@ -1,10 +1,11 @@
 import { RequestHandler } from 'express';
-import user, { UserDocument } from '../models/UserModel';
+import user from '../models/UserModel';
 import apikey from '../models/ApikeyModel';
 import passport from 'passport';
 import { Strategy } from 'passport-local';
 import * as bcrypt from 'bcrypt';
 import { generateApiKey } from '../../config';
+import { Document } from 'mongoose';
 
 export default class UserController {
     constructor() {
@@ -30,7 +31,7 @@ export default class UserController {
                 .then(async (dataUser) => {
                     try {
                         await apikey.create({
-                            userId: dataUser.id,
+                            userId: dataUser._id,
                             key: generateApiKey(),
                         });
                         this.login()(req, res, next);
@@ -44,7 +45,7 @@ export default class UserController {
         };
     }
 
-    findUser(username: string): Promise<UserDocument> {
+    findUser(username: string): Promise<Document> {
         return new Promise(async (resolve, reject) => {
             try {
                 const dataUser = await user.findOne({ username });
@@ -70,7 +71,7 @@ export default class UserController {
     }
 
     private serializeUser(): void {
-        passport.serializeUser(function (user: UserDocument, done) {
+        passport.serializeUser(function (user: Document, done) {
             done(null, user._id);
         });
     }
