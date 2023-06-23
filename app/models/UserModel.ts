@@ -12,31 +12,44 @@ export interface IUser extends Document {
     modifiedAt: Date;
 }
 
-const UserSchema = new Schema({
-    username: {
-        type: String,
-        required: true,
-        unique: true,
-        trim: true,
+const UserSchema = new Schema(
+    {
+        username: {
+            type: String,
+            required: true,
+            unique: true,
+            trim: true,
+        },
+        email: {
+            type: String,
+            required: true,
+            unique: true,
+            trim: true,
+        },
+        password: {
+            type: String,
+            required: true,
+        },
+        isVerified: {
+            type: Boolean,
+            default: false,
+        },
+        createdAt: {
+            type: Date,
+            default: Date.now(),
+        },
+        modifiedAt: {
+            type: Date,
+            default: Date.now(),
+        },
     },
-    email: {
-        type: String,
-        required: true,
-        unique: true,
-        trim: true,
-    },
-    password: {
-        type: String,
-        required: true,
-    },
-    isVerified: {
-        type: Boolean,
-        default: false,
-    },
-});
+    {
+        timestamps: true,
+    }
+);
 
-UserSchema.plugin(paginate);
-UserSchema.plugin(unique);
+// UserSchema.plugin(paginate);
+// UserSchema.plugin(unique);
 
 UserSchema.pre('save', async function (next) {
     try {
