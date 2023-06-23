@@ -6,7 +6,7 @@
     "scripts": {
         "start": "npm run dev",
         "dev": "ts-node app/server/server.ts",
-        "build": "tsc",
+        "build:all": "tsc",
         "build:watch": "tsc -w",
         "dummy": "ts-node src/lib/generateDummyUser.ts"
     },
@@ -34,7 +34,6 @@
         "html-entities": "^2.3.6",
         "mongoose": "^7.2.4",
         "mongoose-paginate-v2": "^1.7.1",
-        "mongoose-unique-validator": "^4.0.0",
         "morgan": "^1.10.0",
         "passport": "^0.6.0",
         "passport-local": "^1.0.0",
