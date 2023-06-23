@@ -1,7 +1,6 @@
 import { Schema, model, Document } from 'mongoose';
 import * as bcrypt from 'bcrypt';
 import paginate from 'mongoose-paginate-v2';
-import unique from 'mongoose-unique-validator';
 
 export interface IUser extends Document {
     username: string;
