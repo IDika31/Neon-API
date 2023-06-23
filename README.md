@@ -1,18 +1,18 @@
 <br/>
 <p align="center">
-  <h3 align="center">IDika REST API</h3>
+  <a href="https://github.com/IDika31/Neon-API">
+    <img src="https://idika-rest-api-19af1e38caac.herokuapp.com/img/logo.png" alt="Logo" width="80" height="80">
+  </a>
+  <h3 align="center">Neon API</h3>
 
   <p align="center">
     Simplifying Data Access.
     <br/>
     <br/>
-    <a href="https://github.com/IDika31/REST-API"><strong>Explore the docs »</strong></a>
-    <br/>
-    <br/>
   </p>
 </p>
 
-![Downloads](https://img.shields.io/github/downloads/IDika31/REST-API/total) ![Contributors](https://img.shields.io/github/contributors/IDika31/REST-API?color=dark-green) ![Forks](https://img.shields.io/github/forks/IDika31/REST-API?style=social) ![Stargazers](https://img.shields.io/github/stars/IDika31/REST-API?style=social) ![Issues](https://img.shields.io/github/issues/IDika31/REST-API) ![License](https://img.shields.io/github/license/IDika31/REST-API) 
+![Downloads](https://img.shields.io/github/downloads/IDika31/Neon-API/total) ![Contributors](https://img.shields.io/github/contributors/IDika31/Neon-API?color=dark-green) ![Forks](https://img.shields.io/github/forks/IDika31/Neon-API?style=social) ![Stargazers](https://img.shields.io/github/stars/IDika31/Neon-API?style=social) ![Issues](https://img.shields.io/github/issues/IDika31/Neon-API) ![License](https://img.shields.io/github/license/IDika31/Neon-API) 
 
 ## Table Of Contents
 
@@ -29,18 +29,18 @@
 
 ## About The Project
 
-IDika REST-API is a powerful and versatile project designed to provide seamless access to a wide range of anime-related information. Built upon the foundation of web scraping, the project harnesses the capabilities of scraping technologies to gather data from various anime websites that lack APIs. Additionally, it offers several other useful features, including real-time game username checks with integrated Redis support, eliminating the need for time-consuming requests.
+Neon API is a powerful and versatile project designed to provide seamless access to a wide range of anime-related information. Built upon the foundation of web scraping, the project harnesses the capabilities of scraping technologies to gather data from various anime websites that lack APIs. Additionally, it offers several other useful features, including real-time game username checks with integrated Redis support, eliminating the need for time-consuming requests.
 
-##### Why Choose IDika REST-API:
+##### Why Choose Neon API:
 
-* **No API Dependency**: Many anime-related websites lack APIs, limiting the accessibility of their data. IDika REST-API solves this challenge by leveraging web scraping techniques, ensuring that users can access information from a wide array of sources that would otherwise be unavailable through traditional API integration.
-* **Faster Development**: By utilizing IDika REST-API, developers can significantly reduce the time and effort required to gather anime-related data and implement additional functionalities. The integration of Redis for game username checks further optimizes performance, ensuring quick and efficient responses. This streamlined development process empowers developers to focus on building innovative features and creating engaging experiences for their users.
+* **No API Dependency**: Many anime-related websites lack APIs, limiting the accessibility of their data. Neon API solves this challenge by leveraging web scraping techniques, ensuring that users can access information from a wide array of sources that would otherwise be unavailable through traditional API integration.
+* **Faster Development**: By utilizing Neon API, developers can significantly reduce the time and effort required to gather anime-related data and implement additional functionalities. The integration of Redis for game username checks further optimizes performance, ensuring quick and efficient responses. This streamlined development process empowers developers to focus on building innovative features and creating engaging experiences for their users.
 
-In summary, IDika REST-API offers a robust solution for accessing anime-related information from websites without native APIs. With its extensive content, seamless integration capabilities, and efficient username checks, this project caters to the needs of developers, content creators, and anime enthusiasts alike, fostering a vibrant and thriving anime community.
+In summary, Neon API offers a robust solution for accessing anime-related information from websites without native APIs. With its extensive content, seamless integration capabilities, and efficient username checks, this project caters to the needs of developers, content creators, and anime enthusiasts alike, fostering a vibrant and thriving anime community.
 
 ## Built With
 
-IDika REST-API, is crafted using a powerful stack of technologies to ensure robustness, efficiency, and seamless functionality. The following cutting-edge technologies have been employed to create this exceptional solution:
+Neon API, is crafted using a powerful stack of technologies to ensure robustness, efficiency, and seamless functionality. The following cutting-edge technologies have been employed to create this exceptional solution:
 
 * **Typescript**: A statically typed superset of JavaScript that enables developers to write clean, maintainable, and scalable code.
 * **ExpressJS**: A fast and minimalist web application framework for Node.js that simplifies the creation of robust APIs and web services.
@@ -70,12 +70,12 @@ To install and set up this project locally, follow these steps:
 **1. Clone the repository**:
 
 ```sh
-git clone https://github.com/IDika31/REST-API.git
+git clone https://github.com/IDika31/Neon-API.git
 ```
 **2. Navigate to the project directory**:
 
 ```sh
-cd REST-API
+cd Neon-API
 ```
 
 **3. Install NPM packages:**
@@ -104,15 +104,14 @@ Feel free to explore the documentation to understand the project's capabilities 
 
 ## Roadmap
 
-See the [open issues](https://github.com/IDika31/REST-API/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/IDika31/Neon-API/issues) for a list of proposed features (and known issues).
 
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-* If you have suggestions for adding or removing projects, feel free to [open an issue](https://github.com/IDika31/REST-API/issues/new) to discuss it, or directly create a pull request after you edit the *README.md* file with necessary changes.
+* If you have suggestions for adding or removing projects, feel free to [open an issue](https://github.com/IDika31/Neon-API/issues/new) to discuss it, or directly create a pull request after you edit the *README.md* file with necessary changes.
 * Please make sure you check your spelling and grammar.
 * Create individual PR for each suggestion.
-* Please also read through the [Code Of Conduct](https://github.com/IDika31/REST-API/blob/main/CODE_OF_CONDUCT.md) before posting your first idea as well.
 
 ### Creating A Pull Request
 
@@ -123,14 +122,14 @@ Fork the project's repository to your GitHub account by clicking on the "**Fork*
 Clone the forked repository to your local machine using the following command:
 
 ```sh
-git clone https://github.com/IDika31/REST-API.git
+git clone https://github.com/IDika31/Neon-API.git
 ```
 
 **3. Create a New Branch**:
 Move into the project's directory and create a new branch for your contribution:
 
 ```sh
-cd REST-API
+cd Neon-API
 git checkout -b feature/my-contribution  # Replace my-contribution with your contribution name
 ```
 
@@ -154,7 +153,7 @@ We appreciate your contributions and look forward to your involvement in enhanci
 
 ## License
 
-Distributed under the MIT License. See [LICENSE](https://github.com/IDika31/REST-API/blob/main/LICENSE.md) for more information.
+Distributed under the MIT License. See [LICENSE](https://github.com/IDika31/Neon-API/blob/main/LICENSE.md) for more information.
 
 ## Authors
 
