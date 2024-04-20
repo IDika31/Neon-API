@@ -57,7 +57,7 @@ const TopSchema: Schema = {
     page: {
         optional: {
             options: {
-                values: 'false',
+                values: 'falsy',
             },
         },
         custom: {
@@ -84,7 +84,7 @@ const TopSchema: Schema = {
     top: {
         optional: {
             options: {
-                values: 'false',
+                values: 'falsy',
             },
         },
         custom: {
