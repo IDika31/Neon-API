@@ -564,13 +564,5 @@
                 }
             }
         },
-        "securitySchemes": {
-            "apiKey": {
-                "type": "apiKey",
-                "name": "apiKey",
-                "in": "query",
-                "description": "This is a private API. Please provide your API key to access this API"
-            }
-        }
     }
 }
